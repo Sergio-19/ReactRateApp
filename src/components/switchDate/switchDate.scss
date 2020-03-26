@@ -1,14 +1,20 @@
 
 
-.switchRate{
+.switchDateWrapper{
+    
+   position: absolute; 
+   display: flex;
+   left: 21vw;
+   top: .5vw;
+}
+.switchDate{
     text-align: center;
-    position: absolute;
-   right: 3vw;
-    top: .5vw;
+    
+    
     background: #007BFF;
     border: 2px solid white;
-    margin-left: 15px;
-        .base{
+    
+        .baseDate{
             cursor: pointer;
             display: inline-block;
             padding: 5px 20px 5px 20px;
@@ -18,8 +24,8 @@
     
 }
 
-.rateList{
-        overflow: hidden;
+.dateList{
+        overflow: auto;
         height: 0;
 
     ul{
@@ -45,6 +51,6 @@
     -o-transition: all .3s ease-in-out;
 }
 
-.rateListShow{
-    height: 77px;
+.dateListShow{
+    height: 300px;
 }

@@ -12,17 +12,39 @@ class App extends React.Component {
     super(props);
     this.state = {
 
-      date: '2020-03-20',
+     
+      year: '2020',
+      month: '03',
+      day: '20',
       base: 'USD',
       rate: {}
 
     }
   }
 
+baseRateHandler = (base) =>{
+
+  this.setState({base})
+}
+
+yearHandler = (year) =>{
+  this.setState({year})
+}
+
+monthHandler = (month) =>{
+  this.setState({month})
+}
+
+dayHandler = (day) =>{
+  this.setState({day})
+}
+
+
+
 
 
   componentDidMount(){
-    const response =  fetch(`https://api.exchangeratesapi.io/${this.state.date}?base=${this.state.base}`)
+    const response =  fetch(`https://api.exchangeratesapi.io/${this.state.year}-${this.state.month}-${this.state.day}?base=${this.state.base}`)
 .then((response)=> response.json()).then((response)=> { console.log(response); this.setState({rate: response.rates})})
   }
 
@@ -30,7 +52,12 @@ render(){
   return (
     
     <BrowserRouter>
-    <RateState state = {this.state}>
+    <RateState state = {this.state}
+               baseRateHandler = {this.baseRateHandler} 
+               yearHandler = {this.yearHandler}
+               monthHandler = {this.monthHandler}
+               dayHandler = {this.dayHandler}
+    >
     <div >
       <Nav/>
 

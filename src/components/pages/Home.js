@@ -2,6 +2,7 @@ import React, {useContext} from 'react'
 import './home.scss'
 import { RateContext } from '../../context/RateContext';
 import { SwitchRate } from '../switchRate/SwitchRate';
+import { SwitchDateWrap } from '../switchDateWrapper/SwitchDateWrap';
 
 export const Home = () =>{
 
@@ -9,19 +10,19 @@ export const Home = () =>{
 
     return(
         <div style = {{width: '80%', margin: '0 auto' }}>
-        <div className = "date"><h3>Курс валют на {state.date}&nbsp; Базовая валюта:</h3> <SwitchRate/></div>
+        <div className = "date"><SwitchDateWrap/><h3>Базовая валюта:</h3> <SwitchRate/></div>
 
             <div style = {{display: 'flex', justifyContent: 'space-between'}}>
-            <div className="head"><h1>{state.base === 'RUB' ? 'Базовая валюта' : 'RUB'}</h1>
+            <div className="head"><h1>{state.base === 'RUB' ? `${state.base} - базовая валюта` : 'RUB'}</h1>
             <p>{state.base === 'RUB' ? '' : '1RUB = 33 rub'}</p>
             </div>
             
 
-            <div className="head"><h1>{state.base === 'USD' ? 'Базовая валюта' : 'USD'}</h1>
+            <div className="head"><h1>{state.base === 'USD' ? `${state.base} - базовая валюта` : 'USD'}</h1>
             <p>{state.base === 'USD' ? '' : '1USD = 33 rub'}</p>
             </div>
 
-            <div className="head"><h1>{state.base === 'EUR' ? 'Базовая валюта' : 'EUR'}</h1>
+            <div className="head"><h1>{state.base === 'EUR' ? `${state.base} - базовая валюта` : 'EUR'}</h1>
                 <p>{state.base === 'EUR' ? '' : '1EUR = 33 rub'}</p>
             </div>
             </div>
