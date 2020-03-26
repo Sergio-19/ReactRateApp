@@ -1,6 +1,7 @@
 import React, {useContext} from 'react'
 import './home.scss'
 import { RateContext } from '../../context/RateContext';
+import { SwitchRate } from '../switchRate/SwitchRate';
 
 export const Home = () =>{
 
@@ -8,7 +9,7 @@ export const Home = () =>{
 
     return(
         <div style = {{width: '80%', margin: '0 auto' }}>
-        <div className = "date"><h3>Курс валют на {state.date}&nbsp; Базовая валюта:&nbsp;{state.base}</h3></div>
+        <div className = "date"><h3>Курс валют на {state.date}&nbsp; Базовая валюта:</h3> <SwitchRate/></div>
 
             <div style = {{display: 'flex', justifyContent: 'space-between'}}>
             <div className="head"><h1>{state.base === 'RUB' ? 'Базовая валюта' : 'RUB'}</h1>

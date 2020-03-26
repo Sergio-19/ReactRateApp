@@ -16,9 +16,12 @@
 }
 
 .date{
+    position: relative;
+    padding-top: 10px;
+    padding-bottom: 10px;
     margin-top: 30px;
     text-align: center;
-    height: 60px;
+    min-height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
