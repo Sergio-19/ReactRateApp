@@ -11,6 +11,7 @@ export const RateState = (props) =>{
                                         yearHandler: props.yearHandler,
                                         monthHandler: props.monthHandler,
                                         dayHandler: props.dayHandler,
+                                        newRateHandler: props.newRateHandler,
                                         
                                         }}>
             {props.children}

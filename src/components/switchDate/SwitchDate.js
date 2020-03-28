@@ -16,9 +16,9 @@ export const SwitchDate = (props) =>{
     let clsDay = ["dateList"]
     if(date){ clsyear.push('dateListShow')}
 
-    if(month){ clsMonth.push('dateListShow')}
+    if(month){ clsMonth.push('monthListShow')}
 
-    if(day){ clsDay.push('dateListShow')}
+    if(day){ clsDay.push('dayListShow')}
 
     const showDateHandler = () =>{
         setDate(!date)
@@ -36,7 +36,7 @@ export const SwitchDate = (props) =>{
         <div className = "switchDateWrapper">
         <div className = 'switchDate'>
             <span className = "baseDate"
-                   onClick = {showDateHandler} 
+                   onClick = {()=> {showDateHandler(); showMonthHandler(); showDayHandler()}} 
             >{state.year}&nbsp;&nbsp;<i className= {`fa fa-chevron-${date ? 'up' : 'down'}`} aria-hidden="true"/></span>
             <div className = {clsyear.join(' ')}>
               <ul>
@@ -57,8 +57,8 @@ export const SwitchDate = (props) =>{
 
 <div className = 'switchDate'>
 <span className = "baseDate"
-       onClick = {showMonthHandler} 
->{state.month}&nbsp;&nbsp;<i className= {`fa fa-chevron-${date ? 'up' : 'down'}`} aria-hidden="true"/></span>
+       onClick = {()=> {showDateHandler(); showMonthHandler(); showDayHandler()}} 
+>{state.month}&nbsp;&nbsp;<i className= {`fa fa-chevron-${month ? 'up' : 'down'}`} aria-hidden="true"/></span>
 <div 
 className = {clsMonth.join(' ')}
 >
@@ -81,8 +81,8 @@ className = {clsMonth.join(' ')}
 
  <div className = 'switchDate'>
             <span className = "baseDate"
-                   onClick = {showDayHandler} 
-            >{state.day}&nbsp;&nbsp;<i className= {`fa fa-chevron-${date ? 'up' : 'down'}`} aria-hidden="true"/></span>
+                   onClick = {()=> {showDateHandler(); showMonthHandler(); showDayHandler()}} 
+            >{state.day}&nbsp;&nbsp;<i className= {`fa fa-chevron-${day ? 'up' : 'down'}`} aria-hidden="true"/></span>
             <div 
             className = {clsDay.join(' ')}
             >

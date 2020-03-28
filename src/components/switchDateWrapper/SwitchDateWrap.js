@@ -17,12 +17,15 @@ export const SwitchDateWrap = () =>{
     return(
         <div>
             <h3 style = {{marginRight: '360px'}}>Курс валют на:&nbsp;
+            <div>
                 <SwitchDate
                 
                 yearArr = {yearArray}
                 dayArr = {dayArray}
                 monthArray = {monthArray}
-                />
+                /> 
+            </div>
+               
 
 
 

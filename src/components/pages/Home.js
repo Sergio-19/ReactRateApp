@@ -6,24 +6,29 @@ import { SwitchDateWrap } from '../switchDateWrapper/SwitchDateWrap';
 
 export const Home = () =>{
 
-    const {state} = useContext(RateContext)
+    const {state, newRateHandler} = useContext(RateContext)
 
     return(
         <div style = {{width: '80%', margin: '0 auto' }}>
-        <div className = "date"><SwitchDateWrap/><h3>Базовая валюта:</h3> <SwitchRate/></div>
+            <div className = "dateWrapper">
+        <div className = "date"><SwitchDateWrap/><h3 style = {{marginRight: '3vw'}}>Базовая валюта:</h3> <SwitchRate/></div>
+        <div className = "dateBtn">
+            <button onClick = {newRateHandler}>Обновить курс</button>
+        </div>
+        </div>
 
             <div style = {{display: 'flex', justifyContent: 'space-between'}}>
             <div className="head"><h1>{state.base === 'RUB' ? `${state.base} - базовая валюта` : 'RUB'}</h1>
-            <p>{state.base === 'RUB' ? '' : '1RUB = 33 rub'}</p>
+            <p>{state.base === 'RUB' ? '' : `1${state.base} = ${state.rate['RUB']}RUB`}</p>
             </div>
             
 
             <div className="head"><h1>{state.base === 'USD' ? `${state.base} - базовая валюта` : 'USD'}</h1>
-            <p>{state.base === 'USD' ? '' : '1USD = 33 rub'}</p>
+            <p>{state.base === 'USD' ? '' : `1${state.base} = ${state.rate['USD']}USD`}</p>
             </div>
 
             <div className="head"><h1>{state.base === 'EUR' ? `${state.base} - базовая валюта` : 'EUR'}</h1>
-                <p>{state.base === 'EUR' ? '' : '1EUR = 33 rub'}</p>
+                <p>{state.base === 'EUR' ? '' : `1${state.base} = ${state.rate['EUR']}EUR`}</p>
             </div>
             </div>
 

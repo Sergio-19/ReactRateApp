@@ -6,7 +6,7 @@ import { Home } from './components/pages/Home';
 import { About } from './components/pages/About';
 import { RateState } from './context/RateState';
 
-
+let date = new Date()
 class App extends React.Component {
   constructor(props){
     super(props);
@@ -15,9 +15,12 @@ class App extends React.Component {
      
       year: '2020',
       month: '03',
-      day: '20',
+      day: '27',
       base: 'USD',
-      rate: {}
+      rate: {},
+
+      
+
 
     }
   }
@@ -39,6 +42,11 @@ dayHandler = (day) =>{
   this.setState({day})
 }
 
+newRateHandler = () =>{
+  const response =  fetch(`https://api.exchangeratesapi.io/${this.state.year}-${this.state.month}-${this.state.day}?base=${this.state.base}`)
+.then((response)=> response.json()).then((response)=> { console.log(response); this.setState({rate: response.rates})})
+}
+
 
 
 
@@ -57,9 +65,11 @@ render(){
                yearHandler = {this.yearHandler}
                monthHandler = {this.monthHandler}
                dayHandler = {this.dayHandler}
+               newRateHandler = {this.newRateHandler}
     >
     <div >
       <Nav/>
+      
 
       <Switch>
         <Route path = '/' exact>
